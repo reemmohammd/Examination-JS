@@ -1,0 +1,216 @@
+
+*{
+    box-sizing: border-box;
+}
+#myScreen{
+    background-color: white;
+    position: absolute;
+    height: 100vh;
+    top: 0%;
+   bottom: 0%;
+   right: 0%;
+   left: 0%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  display: none;
+}
+
+
+#progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5%;
+  }
+
+  #progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color:#D0EFB1;
+    transition: width 1s linear;
+  }
+
+  #timer {
+    font-size: 18px;
+  }
+.quiz_App {
+    width: 70%;
+    margin: auto;
+    margin-top: 5%;
+    padding: 2%;
+    box-shadow: 0 20px 40px rgba(18, 16, 16, 0.1); 
+    font-family: 'Times New Roman', Times, serif;
+    /* font-weight: 100; */
+
+    
+}
+.quiz_App .quiz-inf{
+    width: 100%;
+    padding: 1%;
+   
+    /* display: flex;
+    justify-content: space-between; */
+    
+}
+.quiz-question{
+    width: 70%;
+   background-color: white; 
+   padding: 0.025%;
+   margin-top: 1%;
+   border-radius: 5px;
+  
+}
+#quiz-questions{
+    font-size: x-small;
+    font-weight: bolder;
+
+}
+.quiz_App .answer-area{
+    background-color: rgb(252, 247, 241);
+    padding: 1%;
+    width: 45%;
+    margin: auto;
+    margin-top: 1%;
+    border-radius: 5px;
+    
+}
+.answer-area .answer:not(:last-child){
+    border-bottom: 0.025rem solid #6a6767;
+
+}
+.answer input[type="radio"]:checked + label {
+  color: blue;
+
+    
+}
+.answer label{
+    cursor: pointer;
+    font-weight: bold;
+}
+.answer{
+    padding: 1%;
+}
+.submit-btn{
+    padding: 1%;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 1%;
+    
+    background-color:blue;
+    color: aliceblue;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+
+  
+
+}
+.submit-btn:hover{
+    background-color: aliceblue;
+    color: black;
+}
+
+.bull{
+   
+    padding: 1%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spans-container{
+  
+   
+    display: flex;
+    
+   
+}
+#Prev{
+    display: none;
+}
+.bull .spans-container span{
+  
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-right: 8px;
+    color: #0a0909;
+    text-align: center;
+    cursor: pointer;
+  
+
+
+}
+
+.bull .spans-container .active{
+    background-color: #D0EFB1;
+}
+.results{
+    background-color: rgb(250, 243, 234);
+    padding: 1%;
+    margin-top: 1%;
+}
+
+/* .results span{
+    font-weight: bold;
+    font-size: x-large;
+}
+.results span.bad{
+   color:rgb(223, 25, 25) ;
+}
+.results span.good{
+    color:#009688 ;
+}
+
+.results span.perfect{
+  color:#0075ff ;
+} */
+
+
+.inputDiv input{
+    font-weight:normal;
+    width: 10%;
+  
+    font-size: medium;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 1%;
+    padding: 0.25%;
+}
+
+
+
+
+.inputDiv #Prev:hover{
+    background-color: #b3b8bc;
+}
+.inputDiv #Next:hover{
+    background-color: #b3b8bc;
+   font-weight: bold;
+
+}
+
+#Go:hover{
+    background-color: #b3b8bc;
+    cursor: pointer;
+    font-weight:bold;
+
+}
+
+#Delete:hover{
+    background-color: #b3b8bc;
+    cursor: pointer;
+    font-weight:bold;
+
+}
+/*  */
+.inputDiv #mark:hover{
+   background-color:  #D0EFB1;
+ }

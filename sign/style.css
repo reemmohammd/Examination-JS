@@ -1,0 +1,49 @@
+body {
+    background-image: linear-gradient(43deg,#1b4965 0%, #cae9ff 46%,#D0EFB1 100%);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+#Sign_up ,#Sign_in {
+    
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(50, 50, 50, 1);
+    text-align: center;
+}
+
+ #Sign_up h1, #Sign_in h1 {
+    color: #0582ca;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #0582ca;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: blue;
+}
+input:invalid{
+    border:1px solid red;
+  } 

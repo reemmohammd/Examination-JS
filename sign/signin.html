@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="Sign_in">
+        <h1 id="text_sign">Sign In</h1>
+        <form  id="signInForm" >
+
+            <label for="email">Email</label>
+            <input type="email" id="emailInput" required  />
+
+            <label for="password">Password</label>
+            <input type="password" id="passwordInput" required minlength="8"/>
+
+            <input type="submit" value="Log In" id="signInButton">
+        </form>
+    </div>
+
+    <script>
+        let emailSignIn = document.getElementById("emailInput");
+        let passwordSignIn = document.getElementById("passwordInput");
+
+        let submit = document.getElementById ("signInButton");
+
+        submit.addEventListener("click", function(e){
+            e.preventDefault();
+            let enteredEmail = emailSignIn.value;
+            let enteredPassword = passwordSignIn.value;
+            console.log(enteredEmail)
+            console.log(enteredPassword)
+            let existingUsers =JSON.parse(localStorage.getItem("users")); 
+            console.log(existingUsers)
+            // console.log(existingUsers);
+        //    console.log(typeof(existingUsers)) ;
+           for(let i = 0; i <existingUsers.length ; i++){
+                if(enteredEmail== existingUsers[i].Email &&enteredPassword == existingUsers[i].Password ){
+                    // alert("Done");
+                    console.log("Valid")
+
+                    window.location.replace("JAVA_PROJECT/index.html"); 
+                }else{
+                    console.log("un valid")
+                    
+                }
+            }
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //reg
+        // let userEmailTest = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        // let userPassTest = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        
+
+        // function checkEmailvalid() {
+        //     if (!userEmailTest.test(emailSignIn.value)) {
+        //         emailSignIn.setCustomValidity("Please enter a valid email address");
+        //     } else {
+        //         emailSignIn.setCustomValidity("");
+        //     }
+        // }
+        // function checkPasswordvalid() {
+        //     if (!userPassTest.test(passwordSignIn.value)) {
+        //         passwordSignIn.setCustomValidity("please enter valid password");
+        //     } else {
+        //         passwordSignIn.setCustomValidity("");
+        //     }
+
+        // }
+
+
+
+
+
+
+        
+        
+        // function validateSignIn() {
+            
+        //     let enteredEmail = emailSignIn.value;
+        //     let enteredPassword = passwordSignIn.value;
+
+        //     // Retrieve stored user data from localStorage
+        //     let existingUsers = localStorage.getItem("users");
+
+        //     if (!existingUsers) {
+        //         alert("No users found. Please sign up first.");
+        //         return;
+        //     }
+
+            
+        //     existingUsers = JSON.parse(existingUsers);
+
+           
+        //     let matchedUser = existingUsers.find(user => user.email === enteredEmail && user.password === enteredPassword);
+        //     console.log(matchedUser);
+
+        //     if (matchedUser) {
+        //         window.location.href = "welcome.html";
+        //     } else {
+        //         alert("Invalid email or password. Please try again.");
+        //     }
+        // }
+    </script>
+
+
+</body>
+</html>

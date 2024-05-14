@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="Sign_up">
+        <h1 id="text_sign">Sign UP</h1>
+        <form id="signupForm" action="signin.html">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstNameInput" title="Please enter only alphabetic characters" required
+                oninput="checkfnamevalid()" />
+                <span></span>
+                
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastNameInput" title="Please enter only alphabetic characters" required
+                oninput="checklnamevalid()" />
+                <span></span>
+                
+                <label for="email">Email</label>
+                <input type="email" id="emailInput" required oninput="checkEmailvalid()" />
+                <span></span>
+                
+                <label for="password">Password</label>
+                <input type="password" id="passwordInput" required minlength="8" title="Please enter at least 8 characters"
+                oninput="checkPasswordvalid()">
+                <span></span>
+                
+                <label for="rePassword">Confirm Password</label>
+                <input type="password" id="rePasswordInput" required minlength="8"
+                title="Please enter at least 8 characters" oninput="checkPasswordMatch()"
+                oninput="checkPasswordvalid()">
+                
+                <span id="passwordError" style="color: red;"></span>
+
+            <input type="submit" value="Sign UP" id="submit">
+            
+        </form>
+    </div>
+
+    <script>
+
+        ////////////////////////////////
+        let firstName = document.getElementById("firstNameInput");
+        let lastName = document.getElementById("lastNameInput");
+        let email = document.getElementById("emailInput");
+        let password = document.getElementById("passwordInput");
+        let rePassword = document.getElementById("rePasswordInput");
+        let passwordError = document.getElementById("passwordError");
+        let submit = document.getElementById("submit");
+
+        // regular expretions
+        let userNameTest = /^[a-z A-Z\-]+$/;
+        let userEmailTest = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        let userPassTest = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+
+        function checkfnamevalid() {
+            if (!userNameTest.test(firstName.value)) {
+                firstName.setCustomValidity("Please enter only alphabetic characters");
+                firstName.nextElementSibling.innerHTML="please enter only alphabetic characters";
+                firstName.nextElementSibling.style.color="red";
+                firstName.nextElementSibling.style.fontSize="14px"
+            } else {
+                firstName.nextElementSibling.innerHTML="";
+                firstName.setCustomValidity("");
+                return true;
+            }
+        }
+
+        function checklnamevalid() {
+            if (!userNameTest.test(lastName.value)) {
+                lastName.setCustomValidity("Please enter only alphabetic characters");
+                lastName.nextElementSibling.innerHTML="Please enter only alphabetic characters";
+                lastName.nextElementSibling.style.color="red";
+                lastName.nextElementSibling.style.fontSize="14px"
+            } else {
+                lastName.nextElementSibling.innerHTML="";
+
+                lastName.setCustomValidity("");
+                return true;
+            }
+
+        }
+        function checkEmailvalid() {
+            if (!userEmailTest.test(email.value)) {
+                email.setCustomValidity("Please enter a valid email address");
+                email.nextElementSibling.innerHTML="Please enter a valid email address";
+                email.nextElementSibling.style.color="red";
+                email.nextElementSibling.style.fontSize="14px"
+            } else {
+                email.nextElementSibling.innerHTML="";
+
+                email.setCustomValidity("");
+                return true;
+            }
+        }
+        function checkPasswordMatch() {
+
+            if (password.value !== rePassword.value) {
+                passwordError.textContent = "Passwords must be matche";
+                rePassword.setCustomValidity("Passwords do not match");
+              
+            } else {
+                passwordError.textContent = "";
+                rePassword.setCustomValidity("");
+                return true;
+            }
+        }
+        function checkPasswordvalid() {
+            if (!userPassTest.test(password.value)) {
+                password.setCustomValidity("please enter valid password");
+                password.nextElementSibling.innerHTML="Please enter strong passoword contains numbers,alpha, marks";
+                password.nextElementSibling.style.color="red";
+                password.nextElementSibling.style.fontSize="14px"
+            } else {
+                password.setCustomValidity("");
+                password.nextElementSibling.innerHTML="";
+                return true;
+            }
+        }
+        let allInputs = document.querySelectorAll('inouts')
+        allInputs.forEach((e)=>{
+            e.addEventListener("input",function(){
+                checkfnamevalid()
+            })
+        })
+        ////////////////////////////////////////// Saving Data Tep/////////////////////////////
+        let existingUsers;
+
+        if (localStorage.users) {
+            existingUsers = JSON.parse(localStorage.users);
+        } else {
+            existingUsers = [];
+        }
+        submit.addEventListener("click", function (e) {
+            // console.log(submit)
+
+            e.preventDefault();
+            if (checkfnamevalid() && checklnamevalid() && checkEmailvalid() && checkPasswordMatch() && checkPasswordvalid() && !checkEmailExist()) {
+                let userData = {
+                    first_Name: firstName.value,
+                    last_Name: lastName.value,
+                    Email: email.value,
+                    Password: password.value
+                }
+
+                existingUsers.push(userData);
+                localStorage.users = JSON.stringify(existingUsers); // local storage acccepts only string 
+                window.location.replace("./signin.html");    //replace to another page without return
+            }else{
+                console.log("Error")
+            }
+        })
+
+        function checkEmailExist() {
+            for (let i = 0; i < existingUsers.length; i++) {
+                if (email.value == existingUsers[i].Email) {
+                    alert("email exict before");
+                    window.location.replace("./signin.html");
+                    return true;
+                }
+              
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

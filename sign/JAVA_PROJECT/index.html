@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+    </style>
+    
+</head>
+<body>
+    <div id="myScreen"  >
+
+        <div class="resultt"></div>
+    </div>
+    
+
+    <div style="display: flex;justify-content: center;"> 
+        <div class="quiz_App" style="background-color:white;border-radius: 30px;">
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+          </div>
+          
+          <div style="background-color: rgb(252, 247, 241);font-size:medium ;width: 23%;padding: 0.75%;border-radius: 20px;" id="timer">Time remaining: <span id="timer-value">60</span> seconds</div>
+
+    <div id="quiz-questions" class="quiz-question" style="font-size: small;">
+        <!-- <h2>Which sentence is grammatically correct?</h2> -->
+    </div>
+
+    <div  id="answer-areas" class="answer-area">
+        <!-- <div class="answer">
+            <input type="radio" name="questions" id="a">
+            <label for="a">Her and I are going to the store.
+            </label>
+        </div>
+        <div class="answer">
+            <input type="radio" name="questions" id="b">
+            <label for="b">Me and her are going to the store.
+            </label>
+        </div>
+        <div class="answer">
+            <input type="radio" name="questions" id="c">
+            <label for="c">She and I are going to the store.
+
+            </label>
+        </div>
+        <div class="answer">
+            <input type="radio" name="questions" id="d">
+            <label for="d">Me and she are going to the store.
+
+            </label>
+        </div> -->
+        </div>
+
+
+        <div class="inputDiv" style="width: 100%;text-align: center;display: flex;justify-content:center;margin: auto;margin-top: 2%;">
+            <input style="border: solid 1px rgb(148, 143, 143);"  id="Prev"   type="submit" value="prev">
+           
+            <input style="border: solid 1px rgb(148, 143, 143);"  id="Next" type="submit" value="Next"> 
+
+            <input id="mark" style="border: solid 1px rgb(148, 143, 143);"  type="submit" value="mark" > 
+
+        </div>
+
+       
+        <div class="bull">
+            <div id="spans-container" class="spans-container" style="text-align: center;">
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+             
+            </div>
+            <!-- <div class="countDown">
+                <span class="minutes">02</span>
+                :<span class="seconds">45</span>
+            </div> -->
+
+        </div>
+        <button id="submit" class="submit-btn" type="submit">submitt Answer</button>
+
+        <!-- <div class="results">
+            <span class="perfect">Perfect</span> u answered 10 from 10
+            <span class="good">Good</span> u answered 10 from 10
+            <span class="bad">Bad</span> u answered 10 from 10
+        </div> -->
+
+
+    </div>
+  
+
+    <div id="markCol" style="width:20%;margin-top: 3% ;   box-shadow: 0 20px 40px rgba(18, 16, 16, 0.1); 
+    background-color: rgb(252, 247, 241);" >
+
+    
+    <!-- <div class="markk" style="background-color: rgb(245, 230, 213);margin-bottom: 4% ;padding: 2%;display: flex;justify-content: space-evenly;font-weight: bolder;">
+        QuestionNum1
+        <input style="border: solid 1px rgb(148, 143, 143);width: 25%; padding: 1%;color:#4D7298;
+        ;border-radius: 20px;"  id="Go"   type="submit" value="Go">
+        <input style="border: solid 1px rgb(148, 143, 143);width: 25%; padding: 1%;color: red;border-radius: 20px"  id="Delete"   type="submit" value="Delete">
+
+    
+    
+    </div> -->
+    
+    
+    
+
+    
+    
+    </div>
+</div>
+    
+    <script src="jquery-3.7.1.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
